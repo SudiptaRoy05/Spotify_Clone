@@ -22,6 +22,7 @@ body {
     width: 75vw;
     /* padding: 10px 0; */
     margin: 16px 2px;
+    position: relative;
 
 }
 
@@ -95,7 +96,7 @@ body {
     font-size: 20px;
     font-weight: bolder;
     padding: 16px;
-
+    
 }
 
 .spotifyPlaylist>span {
@@ -187,4 +188,19 @@ body {
 }   
 .loginBtn:hover {
     font-size: 15px;
+}
+
+.playBar{
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(24, 43, 24);
+    width: 96%;
+    padding: 12px;
+}
+
+.songBtns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
 }
