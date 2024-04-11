@@ -94,17 +94,24 @@ body{
     font-size: 20px;
     font-weight: bolder;
     padding: 16px;
+    
+}
+.spotifyPlaylist>span{
+    margin-left: 20px;
 }
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin: 15px;
+    
 }
 .card{
     width: 200px;
     padding: 10px;
     border-radius: 7px;
     background-color: #111111;
+    position: relative;
 }
 
 .card img{
@@ -120,5 +127,24 @@ body{
     font-weight: 300;
     font-size: 14px;
     padding: 5px;
+    
+   
 }
+
+.play{
+    background-color: #1ED760;
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    padding: 10px;
+    position: absolute;
+    /* top: 240px; */
+    top: 149px;
+    right: 22px;
+    /* opacity: 0;
+    transition: all 1s ease-out; */
+}
+
 
