@@ -36,3 +36,21 @@
 .p-1{
     padding: 10px;
 }
+
+/* Track */
+::-webkit-scrollbar {
+    width: 10px;
+    background: #000;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
