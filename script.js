@@ -2,6 +2,20 @@ console.log("JS STARTS");
 
 let currentSong = new Audio();
 
+function secToMin(second) {
+    if (isNaN(second) || second < 0) {
+        return "00:00";
+    }
+    const minutes = Math.floor(second / 60);
+    const remSec = Math.floor(second % 60);
+
+    const formattedMin = String(minutes).padStart(2, "0");
+    const formattedSec = String(remSec).padStart(2, "0");
+
+    return `${formattedMin}:${formattedSec}`;
+}
+
+
 
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/");
@@ -29,13 +43,15 @@ async function getSongs() {
 getSongs();
 
 
-const playMusic = (track) => {
-    // let audio = new Audio("/songs/" + track)
-    currentSong.src = "/songs/" + track
-    currentSong.play();
-    playPause.src = "logo/pause.svg";
+const playMusic = (track, pause = false) => {
 
-    document.querySelector(".songInfo").innerHTML = track
+    currentSong.src = "/songs/" + track
+    if (!pause) {
+        currentSong.play();
+        playPause.src = "logo/pause.svg";
+    }
+
+    document.querySelector(".songInfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
 }
 
@@ -43,7 +59,7 @@ async function main() {
 
     //get all song
     let songs = await getSongs()
-    // console.log(songs);
+    playMusic(songs[0], true);
     // Show all the songs of the playlist
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
 
@@ -84,8 +100,23 @@ async function main() {
             playPause.src = "logo/play.svg";
         }
     });
-    
 
+    //Listen for time update event
+    currentSong.addEventListener("timeupdate", () => {
+        console.log(currentSong.currentTime, currentSong.duration);
+        document.querySelector(".songTime").innerHTML = `${secToMin(currentSong.currentTime)} / ${secToMin(currentSong.duration)}`;
+
+
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+    });
+
+    // add eventListener to seekbar
+    document.querySelector(".seekBar").addEventListener("click", e =>{
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width)*100 ;
+        document.querySelector(".circle").style.left = percent+"%";
+
+        currentSong.currentTime = ((currentSong.duration)* percent)/100
+    })
 }
 
 main()

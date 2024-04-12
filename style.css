@@ -26,6 +26,10 @@ body {
 
 }
 
+.logo img{
+    width: 100px;
+}
+
 /* .home{
     padding: 10px;
 } */
@@ -69,7 +73,7 @@ body {
     gap: 13px;
     position: absolute;
     bottom: 0px;
-    padding: 10px;
+    padding: 20px;
 
 }
 
@@ -279,13 +283,15 @@ body {
     bottom: 7px;
     left: 0%;
     transition: left 0.5s;
+    cursor: pointer;
 }
 
 .songBtns img{
     cursor: pointer;
 }
 
-.songInfo{
-    color: white;
-    z-index: 100;
+
+.innerBar{
+    display: flex;
+    justify-content: space-around;
 }
