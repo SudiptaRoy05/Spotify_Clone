@@ -199,8 +199,8 @@ body {
     position: fixed;
     bottom: 10px;
     background-color: rgb(24, 43, 24);
-    width: 72vw;
-    padding: 12px;
+    width: 70vw;
+    padding: 25px;
     border-radius: 10px;
     /* height: 55px; */
     
@@ -211,6 +211,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 18px;
+
 }
 
 .songList{
@@ -259,11 +260,13 @@ body {
 
 .seekBar{
     height: 2px;
-    width: 100%;
+    width: 90%;
     background-color:rgb(123, 250, 130);
     border: 2px solid rgb(123, 250, 130);
     border-radius: 5px;
     position: absolute;
+    margin: -20px 60px;
+    cursor: pointer;
     
 }
 .circle{
@@ -274,4 +277,15 @@ body {
     border-radius: 10px ;
     position: relative;
     bottom: 7px;
+    left: 0%;
+    transition: left 0.5s;
+}
+
+.songBtns img{
+    cursor: pointer;
+}
+
+.songInfo{
+    color: white;
+    z-index: 100;
 }
