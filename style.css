@@ -101,6 +101,11 @@ body {
     width: 13px;
 }
 
+.nav .hamburger {
+    width: 30px;
+}
+
+
 .spotifyPlaylist {
     font-size: 20px;
     font-weight: bolder;
@@ -226,6 +231,11 @@ body {
     margin-bottom: 10px 0;
     
 }
+
+.hamburger{
+    display: none;
+}
+
 .songList ul li{
     display: flex;
     gap: 12px;
@@ -294,4 +304,62 @@ body {
 .innerBar{
     display: flex;
     justify-content: space-around;
+}
+
+.close{
+    display: none;
+}
+
+
+@media (max-width: 1400px){
+    .left{
+        position: absolute;
+        left: -110%;
+        transition: all 0.3s;
+        z-index: 1;
+        width: 433px;
+        background-color: black;
+    }
+
+    .left .close{
+        position: absolute;
+        right: 25px;
+        top: 30px;
+        
+    }
+    .left .close img{
+        width: 30px;
+    }
+    
+
+    .right{
+        width: 100vw;
+    }
+    .playBar{
+        width: 94vw;
+    }
+    .hamburger{
+        display: block;
+        width: 40px;
+    }
+    .close{
+        display: block;
+    }
+}
+
+@media (max-width: 500px){
+    .left{
+        width: 100vw;
+    }
+    .card{
+        width: 30vw;
+        overflow: hidden;
+    }
+    .card p{
+        display: none;
+    }
+    .card .play{
+        display: none;
+    }
+
 }

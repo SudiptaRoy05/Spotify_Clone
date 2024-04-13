@@ -31,7 +31,7 @@ async function getSongs() {
     let songs = []
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
-        if (element.href.endsWith("mp3")) {
+        if (element.href.endsWith("mp3"||"m4a")) {
             songs.push(element.href.split("/songs/")[1])
         }
     }
@@ -117,6 +117,23 @@ async function main() {
 
         currentSong.currentTime = ((currentSong.duration)* percent)/100
     })
+
+    // Add an event Listener for hamburger
+    document.querySelector(".hamburger").addEventListener("click",()=>{
+        document.querySelector(".left").style.left = "0"
+    })
+
+    // Add an event Listener for close
+    document.querySelector(".close").addEventListener("click",()=>{
+        document.querySelector(".left").style.left = "-110%"
+    })
+
+
+
+
+
+
+
 }
 
 main()
