@@ -1,6 +1,7 @@
 console.log("JS STARTS");
 
 let currentSong = new Audio();
+let songs;
 
 function secToMin(second) {
     if (isNaN(second) || second < 0) {
@@ -58,7 +59,7 @@ const playMusic = (track, pause = false) => {
 async function main() {
 
     //get all song
-    let songs = await getSongs()
+    songs = await getSongs()
     playMusic(songs[0], true);
     // Show all the songs of the playlist
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
@@ -86,7 +87,7 @@ async function main() {
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
 
-            console.log(e.querySelector(".info").firstElementChild.innerHTML);
+            // console.log(e.querySelector(".info").firstElementChild.innerHTML);
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
     });
@@ -103,7 +104,7 @@ async function main() {
 
     //Listen for time update event
     currentSong.addEventListener("timeupdate", () => {
-        console.log(currentSong.currentTime, currentSong.duration);
+        // console.log(currentSong.currentTime, currentSong.duration);
         document.querySelector(".songTime").innerHTML = `${secToMin(currentSong.currentTime)} / ${secToMin(currentSong.duration)}`;
 
 
@@ -129,6 +130,22 @@ async function main() {
     })
 
 
+    //Previus 
+    previous.addEventListener("click", () =>{
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0])
+        if((index-1) >= 0){
+            playMusic(songs[index-1]);
+        }
+        
+    })
+
+    //Next
+    next.addEventListener("click", () =>{
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0])
+        if((index+1) > length){
+            playMusic(songs[index+1]);
+        }
+    })
 
 
 
