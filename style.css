@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+:root{
+    --a:0;
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -133,7 +138,17 @@ body {
     border-radius: 7px;
     background-color: #111111;
     position: relative;
+    transition: all 0.9s;
+
 }
+
+.card:hover {
+    background-color: rgb(44, 44, 44);
+    cursor: pointer;
+    --a:1;
+    
+}
+
 
 .card img {
     width: 100%;
@@ -166,9 +181,10 @@ body {
     /* top: 240px; */
     top: 149px;
     right: 22px;
-    /* opacity: 0;
-    transition: all 1s ease-out; */
+    opacity: var(--a);
+    transition: all 1s ease-out;
 }
+
 .buttons> *{
     margin: 0 15px;
 }
@@ -298,6 +314,7 @@ body {
 
 .songBtns img{
     cursor: pointer;
+    
 }
 
 
@@ -308,6 +325,14 @@ body {
 
 .close{
     display: none;
+}
+.volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    gap: 10px;
+
 }
 
 
@@ -337,6 +362,7 @@ body {
     }
     .playBar{
         width: 94vw;
+        
     }
     .hamburger{
         display: block;
@@ -352,8 +378,9 @@ body {
         width: 100vw;
     }
     .card{
-        width: 30vw;
+        width: 50vw;
         overflow: hidden;
+        margin: auto;
     }
     .card p{
         display: none;
@@ -369,6 +396,7 @@ body {
     }
     .playBar{
         width: 78%;
+        max-height: 40px;
     }
     .seekBar{
         left: -50px;
@@ -378,11 +406,37 @@ body {
         /* overflow: hidden; */
         width: 120px;
     }
-    .innerBar{
-        width: 300px;
-        justify-content: center;
-        align-items: center;
+    .songTime{
+        margin-left: 60px;
     }
+    
+    .songTime img{
+        width: 15px;
+    }
+    .songBtns{
+        gap: 9px;
+        padding-right: 10px;
+    }
+
+    .songBtns img{
+        width: 15px;
+        padding-top: 5px;
+    }
+
+    .innerBar{
+        width: 75vw;
+        justify-content: center;
+        column-gap:5px ;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .volume img{
+        width: 15px;
+        
+        
+    }
+    
     .footer{
         padding-bottom: 35px;
     }
